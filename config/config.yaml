@@ -1,0 +1,10 @@
+# Runtime parameters — loaded separately from config/agent.yaml (the static
+# discovery manifest) and passed to the graph as Graph(config=...).
+max_retry: 3
+timeout_seconds: 30
+
+# Scoring interpretation needs a model client and the update step performs a real
+# write against a marketing-automation instance using the deployment's own
+# credential. Neither is provisioned for the shared STG smoke check, so a clean
+# fail-closed result is the correct STG outcome, not success.
+stg_expected_status: "error"
